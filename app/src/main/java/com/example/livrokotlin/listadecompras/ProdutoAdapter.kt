@@ -26,7 +26,7 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
         val item = getItem(position)
 
         val txt_produto = v.findViewById<TextView>(R.id.txt_item_produto)
-        val txt_qtd = v.findViewById<TextView>(R.id.txt_quantidade)
+        val txt_qtd = v.findViewById<TextView>(R.id.txt_qtd)
         val txt_valor = v.findViewById<TextView>(R.id.txt_valor)
         val img_produto = v.findViewById<ImageView>(R.id.img_item_foto)
 

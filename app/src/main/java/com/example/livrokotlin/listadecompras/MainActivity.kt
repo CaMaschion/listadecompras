@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //val produtosAdapter = ProdutoAdapter(this)
+
         btn_adicionar.setOnClickListener {
 
-            //criando a intent explícita
             val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
         }

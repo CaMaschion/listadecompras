@@ -32,7 +32,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txt_quantidade"
+        android:id="@+id/txt_qtd"
         android:inputType="number"
         android:hint="Quantidade"/>
 

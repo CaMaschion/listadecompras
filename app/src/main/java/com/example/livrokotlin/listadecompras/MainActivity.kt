@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val produtosAdapter = ProdutoAdapter(this)
+        //val produtosAdapter = ProdutoAdapter(this)
         btn_adicionar.setOnClickListener {
 
             //criando a intent explícita
@@ -21,7 +21,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val adapter = list_view_produtos.adapter as ProdutoAdapter
-        adapter.addAll(produtosGlobal)
+        val adapter = list_view_produtos.adapter as? ProdutoAdapter
+        if (adapter != null) {
+            adapter.clear()
+            adapter.addAll(produtosGlobal)
+        }
     }
 }

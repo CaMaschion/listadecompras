@@ -16,31 +16,28 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
 
         val v: View //carrega o layout do item que será mostrado na lista
 
-        //caso a convertview ñ seja nula, ñ precisa inflar o layout, pois já está inflado dentro dela
         if (convertView != null) {
             v = convertView
         } else {
-            //inflar o layout
-            v = LayoutInflater.from(context).inflate(R.layout.list_view_item, parent, false) //true ou false - indica se o layout será anexado a viewgroup (loc 3208)
+            v = LayoutInflater.from(context).inflate(R.layout.list_view_item, parent, false)
         }
 
         val item = getItem(position)
 
         val txt_produto = v.findViewById<TextView>(R.id.txt_item_produto)
-        val txt_qtd = v.findViewById<TextView>(R.id.txt_qtd)
-        val txt_valor = v.findViewById<TextView>(R.id.txt_valor)
+        val txt_qtd = v.findViewById<TextView>(R.id.txt_item_qtd)
+        val txt_valor = v.findViewById<TextView>(R.id.txt_item_valor)
         val img_produto = v.findViewById<ImageView>(R.id.img_item_foto)
 
         val f = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+        txt_valor.text = f.format(item?.valor)
 
         txt_qtd.text = item?.quantidade.toString()
-        txt_produto.text = item?.nome.toString()
-        txt_valor.text = f.format(item?.valor)
+        txt_produto.text = item?.nome
 
         if (item != null) {
                 img_produto.setImageBitmap(item.foto)
             }
-
         return v
     }
 }
@@ -48,10 +45,10 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
 //Comentários para estudo
 
 /* position: posição do item que está prestes a ser montado na lista
- convertView: a View que foi usada no último item para ser reutilizada. Anter de
+ convertView: a View que foi usada no último item para ser reutilizada. Antes de
  utilizar essa variável devemos sempre verificar se ela não está nula, pois se for o
  primeiro item a ser criado, estará nula e não será possível reutilizá-la
- parent: uma view par à qual eventualmente a view principal está atrelada*/
+ parent: uma view pai à qual eventualmente a view principal está atrelada*/
 
 /*CONVERTVIEW - this parameter is used strictly to increase the performance of your Adapter.
 When a ListView uses an Adapter to fill its rows with Views, the adapter populates each

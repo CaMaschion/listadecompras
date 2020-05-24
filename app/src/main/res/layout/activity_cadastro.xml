@@ -49,8 +49,4 @@
         android:text="Inserir"
         android:id="@+id/btn_inserir"/>
 
-
-
-
-
 </LinearLayout>

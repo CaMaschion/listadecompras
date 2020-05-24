@@ -8,12 +8,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Adicionar itens"
-        android:id="@+id/btn_adicionar"/>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,6 +20,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list_view_produtos"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar itens"
+        android:id="@+id/btn_adicionar"/>
 
 
 </LinearLayout>

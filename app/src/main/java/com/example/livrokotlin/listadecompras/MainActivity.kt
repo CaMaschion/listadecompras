@@ -10,10 +10,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //val produtosAdapter = ProdutoAdapter(this)
+
+        //implementação do adapter
+        val produtosAdapter = ProdutoAdapter(this)
+
+        //definindo o adapter na lista
+        list_view_produtos.adapter = produtosAdapter
 
         btn_adicionar.setOnClickListener {
-
             val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
         }
@@ -22,9 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val adapter = list_view_produtos.adapter as? ProdutoAdapter
-        if (adapter != null) {
-            adapter.clear()
-            adapter.addAll(produtosGlobal)
+            adapter?.clear()
+            adapter?.addAll(produtosGlobal)
         }
     }
-}

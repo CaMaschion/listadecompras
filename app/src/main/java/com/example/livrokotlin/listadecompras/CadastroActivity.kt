@@ -26,12 +26,12 @@ class CadastroActivity : AppCompatActivity() {
             if (produto.isNotEmpty() && qtd.isNotEmpty() && valor.isNotEmpty()) {
                 //enviando item para lista
                 val prod = Produto(produto, qtd.toInt(), valor.toDouble())
-
                 produtosGlobal.add(prod)
 
                 txt_produto.text.clear()
                 txt_qtd.text.clear()
                 txt_valor.text.clear()
+
             } else {
                 txt_produto.error = if (txt_produto.text.isEmpty()) "Preencha o nome do produto" else null
                 txt_qtd.error = if (txt_qtd.text.isEmpty()) "Preencha a quantidade" else null

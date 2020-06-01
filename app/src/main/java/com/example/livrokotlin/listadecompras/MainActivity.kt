@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.NumberFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,5 +30,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = list_view_produtos.adapter as? ProdutoAdapter
             adapter?.clear()
             adapter?.addAll(produtosGlobal)
+
+        val soma = produtosGlobal.sumByDouble { it.valor * it.quantidade }
+        val f = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+        txt_total.text = "TOTAL: ${f.format(soma)}"
+
         }
     }

@@ -29,11 +29,12 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
         val txt_valor = v.findViewById<TextView>(R.id.txt_item_valor)
         val img_produto = v.findViewById<ImageView>(R.id.img_item_foto)
 
-        val f = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
-        txt_valor.text = f.format(item?.valor)
-
         txt_qtd.text = item?.quantidade.toString()
         txt_produto.text = item?.nome
+        txt_valor.text = item?.valor.toString()
+
+        val f = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+        txt_valor.text = f.format(item?.valor)
 
         if (item != null) {
                 img_produto.setImageBitmap(item.foto)

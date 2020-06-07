@@ -36,4 +36,6 @@ class MainActivity : AppCompatActivity() {
         txt_total.text = "TOTAL: ${f.format(soma)}"
 
         }
-    }
+
+
+}

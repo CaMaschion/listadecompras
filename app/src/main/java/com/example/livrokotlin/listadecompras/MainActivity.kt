@@ -1,10 +1,10 @@
 package com.example.livrokotlin.listadecompras
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.NumberFormat
+import org.jetbrains.anko.startActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,8 +20,9 @@ class MainActivity : AppCompatActivity() {
         list_view_produtos.adapter = produtosAdapter
 
         btn_adicionar.setOnClickListener {
-            val intent = Intent(this, CadastroActivity::class.java)
-            startActivity(intent)
+            startActivity<CadastroActivity>()
+//            val intent = Intent(this, CadastroActivity::class.java)
+//            startActivity(intent)
         }
     }
 
